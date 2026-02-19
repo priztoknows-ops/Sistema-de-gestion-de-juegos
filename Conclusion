@@ -1,0 +1,27 @@
+Sistema de gestion de juegos
+
+El sistema fue desarrollado en Python utilizando programacion modular, separando la logica en distintos archivos (main.py , funciones.py , datos.py) para mantener una estructura organizada.
+
+Durante el desarrollo se implementaron validaciones como:
+-Control de ID unico utilizando (set)
+-Validacion de entrada numerica en el precio mediante (try/except)
+-Control de lista vacia antes de mostrar estadisticas
+-Exportacion automatica de datos a un archivo CSV
+
+Se realizaron pruebas funcionales para verificar:
+-Registro correcto de juegos
+-Validacion de ID repetido
+-Eliminacion correcta de registros
+-Generacion del archivo CSV
+-Calculo correcto de estadisticas (promedio, juego mas caro y mas barato)
+
+Se comprobo que el archivo CSV se genera automaticamente en la ruta del proyecto utilizando la libreria (os) para asegurar la ubicacion adecuada.
+
+Durante el desarrollo surgieron dificultades relacionadas con:
+-La generacion y ubicacion del archivo CSV
+-La sincronizacion del repositorio con Github
+-Errores de sintaxis en funciones estadisticas
+
+Estas dificultades fueron resueltas mediante pruebas repetitivas, revision de codigo y correccion de errores.
+
+El sistema cumple con los requisitos solicitados y funciona correctamente.
