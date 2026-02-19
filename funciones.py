@@ -82,4 +82,5 @@ def estadisticas():
     print(f"Total de juegos: {total}")
     print(f"Precio promedio: {suma_precio / total}")
     print(f"Juego mas caro: {mas_caro['nombre']} (${mas_caro['precio']}")
+    print(f"Juego mas barato: {mas_barato['nombre']} (${mas_barato['precio']}")
     
