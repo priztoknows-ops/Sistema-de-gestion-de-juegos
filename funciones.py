@@ -1,6 +1,23 @@
 import datos
 import csv
 
+def exportar_csv():
+    """ Exporta la lista de juegos a un archivo CSV."""
+    if len(datos.juegos) == 0:
+        print("No hay juegos para exportar")
+        return
+
+    with open("juegos.csv", mode="w", newline="", encoding="utf-8") as archivo:
+        writer = csv.writer(archivo)
+        writer.writerow(["ID", "Nombre", "Precio"])
+        for juego in datos.juegos:
+            writer.writerow([
+                juego["id"],
+                juego["nombre"],
+                juego["precio"]
+            ])
+    print("Archivo juegos.csv generado correctamente")
+
 def agregar_juego():
     id_juego = input("ID: ")
 
@@ -84,27 +101,3 @@ def estadisticas():
     print(f"Precio promedio: {suma_precio / total}")
     print(f"Juego mas caro: {mas_caro['nombre']} (${mas_caro['precio']})")
     print(f"Juego mas barato: {mas_barato['nombre']} (${mas_barato['precio']})")
-
-def exportar_csv():
-    """
-    Exporta la lista de juegos a un archivo CSV.
-    """
-
-    if len(datos.juegos) == 0:
-        print("No hay juegos para exportar")
-        return
-
-    with open("juegos.csv", mode="w", newline="", encoding="utf-8") as archivo:
-        writer = csv.writer(archivo)
-
-        # Encabezados
-        writer.writerow(["ID", "Nombre", "Precio"])
-
-        # Datos
-        for juego in datos.juegos:
-            writer.writerow([
-                juego["id"],
-                juego["nombre"],
-                juego["precio"]
-            ])
-    print("Archivo juegos.csv generado correctamente")
