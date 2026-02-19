@@ -1,22 +1,26 @@
 import datos
 import csv
+import os
 
 def exportar_csv():
-    """ Exporta la lista de juegos a un archivo CSV."""
-    if len(datos.juegos) == 0:
-        print("No hay juegos para exportar")
-        return
+    ruta_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_completa = os.path.join(ruta_actual, "juegos.csv")
 
-    with open("juegos.csv", mode="w", newline="", encoding="utf-8") as archivo:
-        writer = csv.writer(archivo)
-        writer.writerow(["ID", "Nombre", "Precio"])
-        for juego in datos.juegos:
-            writer.writerow([
-                juego["id"],
-                juego["nombre"],
-                juego["precio"]
-            ])
-    print("Archivo juegos.csv generado correctamente")
+    print(f"\nIntentando crear el archivo en: {ruta_completa}")
+    
+    try:
+        with open(ruta_completa, mode="w", newline="", encoding="utf-8") as archivo:
+            writer = csv.writer(archivo)
+            writer.writerow(["ID", "Nombre", "Precio"])
+            for juego in datos.juegos:
+                writer.writerow([
+                    juego["id"],
+                    juego["nombre"],
+                    juego["precio"]
+                ])
+        print(f"Archivo juegos.csv generado correctamente en: {ruta_completa}")
+    except Exception as e:
+        print(f"Error al crear el archivo: {e}")
 
 def agregar_juego():
     id_juego = input("ID: ")
