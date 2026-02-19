@@ -22,6 +22,9 @@ def menu():
         elif op == "5":
             funciones.estadisticas()
         elif op == "6":
+            print("Guardando datos")
+            funciones.exportar_csv()
+            print("Saliendo")
             break
         else:
             print("Opcion Invalida")
